@@ -1,0 +1,62 @@
+<!-- training.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPhish Defender - Training Module</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">CyberPhish Defender</a>
+            <div class="nav-links">
+                <a href="/">Analysis</a>
+                <a href="/training" class="active">Training</a>
+                <a href="/stats">Statistics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="training-section">
+            <h1>Training Module</h1>
+            
+            <div class="training-stats">
+                <div class="stat-card">
+                    <h3>Training Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ progress }}%"></div>
+                    </div>
+                    <p>{{ completed_scenarios }}/{{ total_scenarios }} Scenarios Completed</p>
+                </div>
+            </div>
+
+            <div class="training-scenarios">
+                <h2>Available Scenarios</h2>
+                {% for scenario in scenarios %}
+                <div class="scenario-card {% if scenario.completed %}completed{% endif %}">
+                    <div class="scenario-header">
+                        <h3>{{ scenario.title }}</h3>
+                        <span class="difficulty {{ scenario.difficulty }}">
+                            {{ scenario.difficulty }}
+                        </span>
+                    </div>
+                    <p>{{ scenario.description }}</p>
+                    <button 
+                        onclick="startScenario('{{ scenario.id }}')"
+                        class="secondary-button"
+                        {% if scenario.completed %}disabled{% endif %}
+                    >
+                        {% if scenario.completed %}Completed{% else %}Start Scenario{% endif %}
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/training.js') }}"></script>
+</body>
+</html>

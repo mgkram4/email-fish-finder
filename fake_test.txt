@@ -1,0 +1,25 @@
+From: security@netf1ix-account.com
+Subject: URGENT: Your Netflix Account Has Been Suspended
+
+Dear Valued Customer,
+
+We've detected unusual activity on your Netflix account. Your account has been temporarily suspended due to multiple failed login attempts from unknown locations.
+
+To restore your account access immediately, please verify your information by clicking the link below:
+
+http://netf1ix-account-verify.tk/restore.php?user=target
+
+If you do not verify within 24 hours, your account will be permanently suspended and all data will be lost.
+
+Account Details Required:
+- Current Email
+- Password
+- Billing Information
+
+For your security, we need to verify your payment information to ensure it wasn't compromised.
+
+Click Here to Restore Access: http://bit.ly/2xNetflixVerify
+
+Best regards,
+Netflix Security Team
+Customer Support Department

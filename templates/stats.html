@@ -1,0 +1,68 @@
+<!-- stats.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPhish Defender - Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">CyberPhish Defender</a>
+            <div class="nav-links">
+                <a href="/">Analysis</a>
+                <a href="/training">Training</a>
+                <a href="/stats" class="active">Statistics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="stats-section">
+            <h1>Detection Statistics</h1>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Overall Accuracy</h3>
+                    <div class="stat-value">{{ "%.2f"|format(metrics.accuracy * 100) }}%</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Emails Analyzed</h3>
+                    <div class="stat-value">{{ metrics.total_analyzed }}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Phishing Detected</h3>
+                    <div class="stat-value">{{ metrics.phishing_detected }}</div>
+                </div>
+            </div>
+
+            <div class="visualization-section">
+                <div class="viz-card">
+                    <h3>Detection Performance</h3>
+                    <img src="data:image/png;base64,{{ visualizations.confusion_matrix }}" 
+                         alt="Confusion Matrix"
+                         class="viz-image">
+                </div>
+                
+                <div class="viz-card">
+                    <h3>Key Indicators</h3>
+                    <img src="data:image/png;base64,{{ visualizations.feature_importance }}"
+                         alt="Feature Importance"
+                         class="viz-image">
+                </div>
+                
+                <div class="viz-card">
+                    <h3>Detection Trend</h3>
+                    <img src="data:image/png;base64,{{ visualizations.detection_trend }}"
+                         alt="Detection Trend"
+                         class="viz-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/stats.js') }}"></script>
+</body>
+</html>
