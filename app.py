@@ -21,6 +21,7 @@ def analyze_email():
         
         # Simple rule-based classification
         is_suspicious = (
+            
             features['has_suspicious_tld'] or 
             features['has_url_shortener'] or 
             features['has_multiple_from']
